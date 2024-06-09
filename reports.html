@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reports</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles01.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Reports</h1>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Party Name</th>
+                <th>Due Date</th>
+                <th>Purchase Amount</th>
+                <th>Paid</th>
+                <th>Due Amount</th>
+            </tr>
+            {% for row in data %}
+            <tr>
+                <td>{{ row.id }}</td>
+                <td>{{ row.party_name }}</td>
+                <td>{{ row.due_date }}</td>
+                <td>{{ row.purchase_amount }}</td>
+                <td>{{ row.paid }}</td>
+                <td>{{ row.due_amount }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <a href="{{ url_for('download_pdf') }}" class="btn">Download PDF</a>
+        <br><br>
+        <a href="{{ url_for('home') }}" class="btn">Return Home</a>
+    </div>
+</body>
+</html>

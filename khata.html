@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Khata Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Khata Form</h1>
+        <form action="/khata" method="post">
+            {{ form.csrf_token }}
+            <div class="form-group">
+                <label for="party_name">Party Name</label>
+                {{ form.party_name(class="form-control", id="party_name") }}
+            </div>
+            <div class="form-group">
+                <label for="purchase_amount">Purchased</label>
+                {{ form.purchase_amount(class="form-control", id="purchase_amount") }}
+            </div>
+            <div class="form-group">
+                <label for="paid">Paid</label>
+                {{ form.paid(class="form-control", id="paid") }}
+            </div>
+            <div class="form-group">
+                <label for="due_date">Due Date</label>
+                {{ form.due_date(class="form-control", id="due_date") }}
+            </div>
+            <button type="submit" class="btn btn-primary">ENTER</button>
+        </form>
+        <br>
+        <button class="btn btn-secondary"><a href="{{ url_for('home') }}">Return Home</a></button>
+    </div>
+</body>
+</html>
